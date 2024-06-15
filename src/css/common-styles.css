@@ -75,16 +75,10 @@ body {
 }
 
 .gallery-item {
-   border: 1px solid #808080;
+   box-shadow: 0 0px 2px 0px;
    width: 360px;
    height: 200px;
-   transition: transform 250ms ease;
    flex-grow: 1;
-}
-
-.gallery-item:hover,
-.gallery-item:focus {
-   transform: scale(1.03);
 }
 
 .gallery-link {
@@ -94,12 +88,19 @@ body {
 .gallery-image-thumb {
    width: 100%;
    height: 152px;
+   overflow: hidden;
 }
 
 .gallery-image {
    width: 100%;
    height: 100%;
    object-fit: cover;
+   transition: transform 250ms ease;
+}
+
+.gallery-item:hover .gallery-image,
+.gallery-item:focus .gallery-image {
+   transform: scale(1.03);
 }
 
 /*========================================*/
