@@ -1,7 +1,7 @@
 /**
  *
  * @param {String} query
- * @returns
+ * @returns {Object}
  */
 export function getImages(imageName) {
   const BASE_URL = 'https://pixabay.com';
@@ -15,5 +15,7 @@ export function getImages(imageName) {
   });
   const url = `${BASE_URL}${END_POINT}?${params}`;
 
-  return fetch(url).then(response => response.json());
+  return fetch(url)
+    .then(response => response.json())
+    .catch(err => console.log(err));
 }

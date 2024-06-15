@@ -89,10 +89,12 @@ body {
 
 .gallery-link {
    display: block;
+}
+
+.gallery-image-thumb {
    width: 100%;
    height: 152px;
 }
-
 
 .gallery-image {
    width: 100%;
@@ -137,13 +139,7 @@ body {
    justify-content: center;
    align-items: center;
    background-color: #2e2f4272;
-   transition: opacity 0.75s,  visibility 0.75s;
-}
-
-.loader-hidden {
-   /* opacity: 0;
-   visibility: hidden */
-   display: none;
+   transition: opacity 0.75s, visibility 0.75s;
 }
 
 .loader::after {
@@ -151,53 +147,25 @@ body {
    width: 75px;
    height: 75px;
    border: 15px solid #dddddd;
-   border-top-color: rgba(0, 0, 255, 0.742);
+   border-top-color: #4e75ff;
    border-radius: 50%;
    animation: loading 0.75s ease infinite;
 }
 
+.loader-hidden {
+   display: none;
+}
+
 @keyframes loading {
-   from{
+   from {
       transform: rotate(0turn);
    }
-   to{
+
+   to {
       transform: rotate(1turn);
    }
-} 
-
-/* .loader {
-   width: 48px;
-   height: 48px;
-   border-radius: 50%;
-   display: inline-block;
-   position: relative;
-   background: linear-gradient(0deg, rgba(255, 61, 0, 0.2) 33%, #ff3d00 100%);
-   box-sizing: border-box;
-   animation: rotation 1s linear infinite;
 }
 
-.loader::after {
-   content: '';
-   box-sizing: border-box;
-   position: absolute;
-   left: 50%;
-   top: 50%;
-   transform: translate(-50%, -50%);
-   width: 44px;
-   height: 44px;
-   border-radius: 50%;
-   background: #263238;
-}
-
-@keyframes rotation {
-   0% {
-      transform: rotate(0deg)
-   }
-
-   100% {
-      transform: rotate(360deg)
-   }
-} */
 
 /* ----------------------------------- */
 .izt-toast-message {

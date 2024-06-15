@@ -14,21 +14,25 @@ import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
 
 import iconClose from './img/icon-close.svg';
-// ---------------------------------------------------------
 
+
+
+// ---------------------------------------------------------
 const formEl = document.querySelector('.search-form');
+const ulEl = document.querySelector('.gallery');
 const loader = document.querySelector('.loader');
-
 // ---------------------------------------------------------
+
+
 
 // ---------------------------------------------------------
 formEl.addEventListener('submit', event => {
   event.preventDefault();
-
+  
   const query = event.target.elements.query.value.trim();
-
+  
   if (query.length !== 0) {
-
+    
     addLoader(loader);
 
     getImages(query)
@@ -50,13 +54,12 @@ formEl.addEventListener('submit', event => {
           });
         } else {
           const markup = imagesTamplate(data.hits);
-          const ulEl = document.querySelector('.gallery');
+
           ulEl.innerHTML = markup;
 
-          const lightbox = new SimpleLightbox('.gallery a');
-          lightbox.refresh();
+          const gallery = new SimpleLightbox('.gallery a');
+          gallery.refresh();
         }
-        console.log(data);
       })
       .catch(error => {
         console.log(error)
@@ -68,3 +71,4 @@ formEl.addEventListener('submit', event => {
 
   formEl.reset();
 });
+// ---------------------------------------------------------
