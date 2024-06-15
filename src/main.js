@@ -1,6 +1,11 @@
-import { imagesTamplate, imageTemplate } from './js/render-functions.js';
-import { getImages } from './js/pixabay-api.js';
+import {
+  imagesTamplate,
+  imageTemplate,
+  addLoader,
+  removeLoader,
+} from './js/render-functions.js';
 
+import { getImages } from './js/pixabay-api.js';
 
 import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
@@ -9,8 +14,11 @@ import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
 
 import iconClose from './img/icon-close.svg';
+// ---------------------------------------------------------
 
 const formEl = document.querySelector('.search-form');
+const loader = document.querySelector('.loader');
+
 // ---------------------------------------------------------
 
 // ---------------------------------------------------------
@@ -20,6 +28,9 @@ formEl.addEventListener('submit', event => {
   const query = event.target.elements.query.value.trim();
 
   if (query.length !== 0) {
+
+    addLoader(loader);
+
     getImages(query)
       .then(data => {
         if (data.hits.length === 0) {
@@ -48,7 +59,10 @@ formEl.addEventListener('submit', event => {
         console.log(data);
       })
       .catch(error => {
-        // Promise rejected
+        console.log(error)
+      })
+      .finally(() => {
+        removeLoader(loader);
       });
   }
 

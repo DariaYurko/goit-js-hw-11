@@ -28,3 +28,11 @@ export function imageTemplate(el) {
         </ul>
       </li>`;
 }
+
+export function addLoader(loader) {
+  loader.classList.remove('loader-hidden');
+}
+
+export function removeLoader(loader) {
+  loader.classList.add('loader-hidden');
+}
